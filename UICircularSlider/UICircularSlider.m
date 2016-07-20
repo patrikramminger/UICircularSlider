@@ -120,12 +120,6 @@
 	self.continuous = YES;
 	self.thumbCenterPoint = CGPointZero;
 	
-    /**
-     * This tapGesture isn't used yet but will allow to jump to a specific location in the circle
-     */
-	UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureHappened:)];
-	[self addGestureRecognizer:tapGestureRecognizer];
-	
 	UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureHappened:)];
 	panGestureRecognizer.maximumNumberOfTouches = panGestureRecognizer.minimumNumberOfTouches;
 	[self addGestureRecognizer:panGestureRecognizer];
@@ -261,15 +255,6 @@
             break;
 		default:
 			break;
-	}
-}
-- (void)tapGestureHappened:(UITapGestureRecognizer *)tapGestureRecognizer {
-	if (tapGestureRecognizer.state == UIGestureRecognizerStateEnded) {
-		CGPoint tapLocation = [tapGestureRecognizer locationInView:self];
-		if ([self isPointInThumb:tapLocation]) {
-		}
-		else {
-		}
 	}
 }
 
